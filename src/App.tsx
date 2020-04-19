@@ -1,14 +1,24 @@
+import jss from 'jss';
+import jssPluginGlobal from 'jss-plugin-global';
 import React from 'react';
-import { ThemeProvider } from 'react-jss';
+import injectSheet, { JssProvider, ThemeProvider } from 'react-jss';
 
-import * as theme from './theme';
+import AppHeader from './components/AppHeader';
+import style from './styles';
+import theme from './theme';
+
+jss.use(jssPluginGlobal());
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App" />
-    </ThemeProvider>
+    <JssProvider jss={jss}>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <AppHeader />
+        </div>
+      </ThemeProvider>
+    </JssProvider>
   );
 };
 
-export default App;
+export default injectSheet(style)(App);

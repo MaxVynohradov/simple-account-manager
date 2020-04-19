@@ -18,6 +18,8 @@
     "@types/redux": "^3.6.0",
     "@types/yup": "^0.26.37",
     "formik": "^2.1.4",
+    "jss": "^10.1.1",
+    "jss-plugin-global": "^10.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-jss": "^10.1.1",

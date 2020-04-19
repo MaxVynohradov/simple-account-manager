@@ -1576,16 +1576,7 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react-router-dom@^5.1.4":
-  version "5.1.4"
-  resolved "https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.1.4.tgz#8d3e0306df74af301cc896309e7d4758f1a4bf71"
-  integrity sha512-LO0z5qqSfWdYtCNsRm8/OMnnkv52hwADJKrAfpKIyfHclORllcgAMGypEA7ajHm38+jOonKLx8nPygNAAZGxtg==
-  dependencies:
-    "@types/history" "*"
-    "@types/react" "*"
-    "@types/react-router" "*"
-
-"@types/react-router@*", "@types/react-router@^5.1.5":
+"@types/react-router@^5.1.5":
   version "5.1.5"
   resolved "https://registry.npmjs.org/@types/react-router/-/react-router-5.1.5.tgz#7b2f9b7cc3d350e92664c4e38c0ef529286fe628"
   integrity sha512-RZPdCtZympi6X7EkGyaU7ISiAujDYTWgqMF9owE3P6efITw27IWQykcti0BvA5h4Mu1LLl5rxrpO3r8kHyUZ/Q==
@@ -6855,7 +6846,7 @@ jss-plugin-extend@10.1.1:
     jss "10.1.1"
     tiny-warning "^1.0.2"
 
-jss-plugin-global@10.1.1:
+jss-plugin-global@10.1.1, jss-plugin-global@^10.1.1:
   version "10.1.1"
   resolved "https://registry.npmjs.org/jss-plugin-global/-/jss-plugin-global-10.1.1.tgz#36b0d6d9facb74dfd99590643708a89260747d14"
   integrity sha512-VBG3wRyi3Z8S4kMhm8rZV6caYBegsk+QnQZSVmrWw6GVOT/Z4FA7eyMu5SdkorDlG/HVpHh91oFN56O4R9m2VA==
@@ -6935,7 +6926,7 @@ jss-preset-default@10.1.1:
     jss-plugin-template "10.1.1"
     jss-plugin-vendor-prefixer "10.1.1"
 
-jss@10.1.1:
+jss@10.1.1, jss@^10.1.1:
   version "10.1.1"
   resolved "https://registry.npmjs.org/jss/-/jss-10.1.1.tgz#450b27d53761af3e500b43130a54cdbe157ea332"
   integrity sha512-Xz3qgRUFlxbWk1czCZibUJqhVPObrZHxY3FPsjCXhDld4NOj1BgM14Ir5hVm+Qr6OLqVljjGvoMcCdXNOAbdkQ==
