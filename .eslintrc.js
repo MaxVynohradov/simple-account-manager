@@ -79,7 +79,7 @@ module.exports = {
         properties: 'never',
       },
     ],
-    curly: ['error', 'all'],
+    curly: ["error", 'multi', 'consistent'],
     'dot-notation': 'error',
     eqeqeq: ['error', 'allow-null'],
     'func-names': ['error', 'as-needed'],

@@ -35,6 +35,11 @@ const useStyles = createUseStyles((theme: IGeneralTheme) => ({
       },
     },
   },
+  wizardBody: {
+    backgroundColor: theme.background.color.activeContainerBody,
+    minHeight: '100px',
+    width: '100%',
+  },
 }));
 
 export default useStyles;

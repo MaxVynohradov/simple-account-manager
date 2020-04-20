@@ -24,7 +24,7 @@ const App: React.FC = () => {
             <AppContainer headerText="Adding new user">
               <Switch>
                 <Redirect from="/" to="/user/create" exact />
-                <Route path="/user/create" exact>
+                <Route path="/user/create">
                   <UserModificationWizard />
                 </Route>
               </Switch>

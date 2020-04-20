@@ -4,7 +4,11 @@ import useStyles from './styles';
 
 const UserContactsWizardTab: React.FC<{}> = () => {
   const classes = useStyles();
-  return <Fragment />;
+  return (
+    <Fragment>
+      <p>UserContactsWizardTab</p>
+    </Fragment>
+  );
 };
 
 export default UserContactsWizardTab;
