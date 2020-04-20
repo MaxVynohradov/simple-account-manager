@@ -8,7 +8,7 @@ import useStyles from './styles';
 const UserCapabilitiesWizardTab: React.FC<WizardTabProps> = ({ baseUrl }: WizardTabProps) => {
   const classes = useStyles();
   const actionHandlers: IActionHandler[] = [
-    { link: `${baseUrl}/profile`, actionType: 'Back' },
+    { link: `${baseUrl}/contacts`, actionType: 'Back' },
     { link: `${baseUrl}/account`, actionType: 'Finish' },
   ];
   return (

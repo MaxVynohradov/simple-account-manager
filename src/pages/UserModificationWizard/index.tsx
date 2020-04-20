@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation, useRouteMatch } from 'react-router-dom';
 
 import Account from './pages/Account';
 import Capabilities from './pages/Capabilities';
@@ -9,15 +9,20 @@ import useStyles from './styles';
 
 const UserModificationWizard: React.FC<{}> = () => {
   const classes = useStyles();
-  const match = useRouteMatch();
-  const { url } = match;
+  const { url } = useRouteMatch();
+  const { pathname } = useLocation();
+  const currentTabName = pathname.trimEnd().split('/').pop();
+
+  const shouldTabBeActive = (tabName: string): string | undefined =>
+    currentTabName === tabName ? classes.wizardHeaderActiveItem : undefined;
+
   return (
     <div className={classes.wizardContainer}>
       <div className={classes.wizardHeader}>
-        <div className={classes.wizardHeaderActiveItem}>1. Account</div>
-        <div>2. Profile</div>
-        <div>3. Contacts</div>
-        <div>4. Capabilities</div>
+        <div className={shouldTabBeActive('account')}>1. Account</div>
+        <div className={shouldTabBeActive('profile')}>2. Profile</div>
+        <div className={shouldTabBeActive('contacts')}>3. Contacts</div>
+        <div className={shouldTabBeActive('capabilities')}>4. Capabilities</div>
       </div>
       <div className={classes.wizardBody}>
         <Switch>

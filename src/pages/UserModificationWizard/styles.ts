@@ -32,6 +32,7 @@ const useStyles = createUseStyles((theme: IGeneralTheme) => ({
       '&$wizardHeaderActiveItem': {
         backgroundColor: theme.background.color.activeContainerHeader,
         color: theme.font.color.white,
+        transition: 'width 2s',
       },
     },
   },
