@@ -12,7 +12,6 @@ interface Props {
 const WizardNavButton: React.FC<Props> = ({ link, actionType }: Props) => {
   const classes = useStyles();
   const history = useHistory();
-  const match = useRouteMatch();
 
   const buttonTypeToClass = (): string => {
     if (actionType === 'Back') return classes.backButton;
@@ -20,7 +19,7 @@ const WizardNavButton: React.FC<Props> = ({ link, actionType }: Props) => {
     return classes.finishButton;
   };
 
-  const handleClick = (): void => history.push(`${match.url}/${link}`);
+  const handleClick = (): void => history.push(link);
   return (
     <button type="button" className={buttonTypeToClass()} onClick={handleClick}>
       <span>{actionType}</span>

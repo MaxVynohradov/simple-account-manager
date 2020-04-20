@@ -1,13 +1,18 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
+import WizardNavBar from '../../components/WizardNavBar';
+import IActionHandler from '../../interfaces/actionHandler';
+import WizardTabProps from '../../interfaces/wizardTabProps';
 import useStyles from './styles';
 
-const UserAccountWizardTab: React.FC<{}> = () => {
+const UserAccountWizardTab: React.FC<WizardTabProps> = ({ baseUrl }: WizardTabProps) => {
   const classes = useStyles();
+  const actionHandlers: IActionHandler[] = [{ link: `${baseUrl}/profile`, actionType: 'Forward' }];
   return (
-    <Fragment>
-      <p>Account</p>
-    </Fragment>
+    <>
+      <p>UserAccountWizardTab</p>
+      <WizardNavBar actionHandlers={actionHandlers} />
+    </>
   );
 };
 

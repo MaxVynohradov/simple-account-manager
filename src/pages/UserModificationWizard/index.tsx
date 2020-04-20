@@ -10,7 +10,7 @@ import useStyles from './styles';
 const UserModificationWizard: React.FC<{}> = () => {
   const classes = useStyles();
   const match = useRouteMatch();
-
+  const { url } = match;
   return (
     <div className={classes.wizardContainer}>
       <div className={classes.wizardHeader}>
@@ -21,11 +21,19 @@ const UserModificationWizard: React.FC<{}> = () => {
       </div>
       <div className={classes.wizardBody}>
         <Switch>
-          <Redirect from={`${match.url}`} to={`${match.url}/account`} exact />
-          <Route path={`${match.url}/account`} exact component={Account} />
-          <Route path={`${match.url}/profile`} component={Profile} />
-          <Route path={`${match.url}/contacts`} component={Contacts} />
-          <Route path={`${match.url}/capabilities`} component={Capabilities} />
+          <Redirect from={`${url}`} to={`${url}/account`} exact />
+          <Route path={`${url}/account`} exact>
+            <Account baseUrl={url} />
+          </Route>
+          <Route path={`${url}/profile`} exact>
+            <Profile baseUrl={url} />
+          </Route>
+          <Route path={`${url}/contacts`} exact>
+            <Contacts baseUrl={url} />
+          </Route>
+          <Route path={`${url}/capabilities`} exact>
+            <Capabilities baseUrl={url} />
+          </Route>
         </Switch>
       </div>
     </div>

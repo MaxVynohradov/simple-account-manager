@@ -8,7 +8,11 @@ const generalButtonStyles = {
   alignItems: 'center',
   width: '100px',
   height: '40px',
-  marginLeft: '100px',
+  marginRight: '100px',
+  fontWeight: 500,
+  fontSize: '14px',
+  lineHeight: '16px',
+  cursor: 'pointer',
 };
 
 const useStyles = createUseStyles((theme: IGeneralTheme) => ({

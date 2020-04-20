@@ -5,7 +5,7 @@ import WizardNavButton from '../WizardNavButton';
 import useStyles from './styles';
 
 interface Props {
-  actionHandlers: [IActionHandler];
+  actionHandlers: IActionHandler[];
 }
 
 const WizardNavBar: React.FC<Props> = ({ actionHandlers }: Props) => {
