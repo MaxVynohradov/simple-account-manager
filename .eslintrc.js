@@ -236,6 +236,7 @@ module.exports = {
     '@typescript-eslint/require-array-sort-compare': 'error',
     '@typescript-eslint/restrict-plus-operands': 'error',
     '@typescript-eslint/quotes': ['error', 'single'],
+    '@typescript-eslint/ban-ts-ignore': 'off',
   },
   settings: {
     'import/parsers': {

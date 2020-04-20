@@ -7,6 +7,8 @@ const style = {
       fontSize: '100%',
       font: 'inherit',
       verticalAlign: 'baseline',
+      fontFamily: 'Roboto, sans-serif',
+      fontStyle: 'normal',
     },
     ':focus': {
       outline: '0',

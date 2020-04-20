@@ -19,7 +19,9 @@
     "@types/yup": "^0.26.37",
     "formik": "^2.1.4",
     "jss": "^10.1.1",
+    "jss-plugin-camel-case": "^10.1.1",
     "jss-plugin-global": "^10.1.1",
+    "jss-plugin-nested": "^10.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-jss": "^10.1.1",
@@ -30,6 +32,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "typeface-roboto": "^0.0.75",
     "typescript": "^3.8.3",
     "yup": "^0.28.3"
   },
