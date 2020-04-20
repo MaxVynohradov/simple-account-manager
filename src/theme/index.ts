@@ -20,7 +20,9 @@ const Theme: IGeneralTheme = {
     color: {
       paper: '#E5E5E5',
       primary: '#5E97F3',
-      activeTabBody: '#E7F0FF',
+      activeContainerBody: '#E7F0FF',
+      activeContainerHeader: '#4E86E4',
+      inactiveContainerHeader: 'rgba(151,186,244, .2)',
     },
   },
 };

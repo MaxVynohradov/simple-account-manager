@@ -4,9 +4,11 @@ import jssPluginGlobal from 'jss-plugin-global';
 import jssPluginNested from 'jss-plugin-nested';
 import React from 'react';
 import injectSheet, { JssProvider, ThemeProvider } from 'react-jss';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import AppContainer from './components/AppContainer';
 import AppHeader from './components/AppHeader';
+import UserModificationWizard from './pages/UserModificationWizard';
 import style from './styles';
 import theme from './theme';
 
@@ -16,10 +18,19 @@ const App: React.FC = () => {
   return (
     <JssProvider jss={jss}>
       <ThemeProvider theme={theme}>
-        <div className="App">
-          <AppHeader />
-          <AppContainer headerText="Adding new user" />
-        </div>
+        <Router basename="/simple-account-manager">
+          <div className="App">
+            <AppHeader />
+            <AppContainer headerText="Adding new user">
+              <Switch>
+                <Redirect from="/" to="/user/create" exact />
+                <Route path="/user/create" exact>
+                  <UserModificationWizard />
+                </Route>
+              </Switch>
+            </AppContainer>
+          </div>
+        </Router>
       </ThemeProvider>
     </JssProvider>
   );

@@ -11,10 +11,9 @@ const useStyles = createUseStyles((theme: IGeneralTheme) => ({
     width: theme.container.general.width,
     minWidth: theme.container.general.minWidth,
     margin: '30px auto 5px auto',
-    border: '1px solid black',
-    height: '100px',
   },
   appContainerHeader: {
+    marginBottom: '45px',
     color: theme.font.color.regular,
     fontSize: '35px',
     fontWeight: 'bold',
