@@ -5,6 +5,7 @@ import jssPluginNested from 'jss-plugin-nested';
 import React from 'react';
 import injectSheet, { JssProvider, ThemeProvider } from 'react-jss';
 
+import AppContainer from './components/AppContainer';
 import AppHeader from './components/AppHeader';
 import style from './styles';
 import theme from './theme';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
         <div className="App">
           <AppHeader />
+          <AppContainer headerText="Adding new user" />
         </div>
       </ThemeProvider>
     </JssProvider>

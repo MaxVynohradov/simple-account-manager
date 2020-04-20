@@ -58,6 +58,7 @@ module.exports = {
         'tsx': 'never'
       }
     ],
+    semi: [2, 'always'],
     'prettier/prettier': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
@@ -159,7 +160,6 @@ module.exports = {
     ],
     'vars-on-top': 'error',
     yoda: 'error',
-    semi: [2, 'always'],
     'no-trailing-spaces': 'error',
     'import/no-extraneous-dependencies': 2,
     'max-classes-per-file': 'off',

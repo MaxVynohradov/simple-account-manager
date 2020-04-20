@@ -1,4 +1,12 @@
-export default {
+import IGeneralTheme from './interfaces';
+
+const Theme: IGeneralTheme = {
+  container: {
+    general: {
+      minWidth: '900px',
+      width: '1200px',
+    },
+  },
   font: {
     color: {
       primary: '#000000',
@@ -16,3 +24,5 @@ export default {
     },
   },
 };
+
+export default Theme;

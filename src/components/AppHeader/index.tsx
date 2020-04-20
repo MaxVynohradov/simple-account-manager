@@ -8,7 +8,7 @@ import useStyles from './styles';
 
 // interface AppHeaderProps {}
 
-const AppHeader: React.FunctionComponent<{}> = () => {
+const AppHeader: React.FC<{}> = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   return (
