@@ -1,5 +1,6 @@
 interface IWizardFormValues {
   // account
+  avatar: File | FileList | null;
   userName: string;
   password: string;
   passwordRepeat: string;

@@ -3,6 +3,7 @@ import IWizardFormValues from "./interfaces/wizardFormValues";
 const wizardInitialValues: IWizardFormValues = {
   // account
   userName: '',
+  avatar: null,
   password: '',
   passwordRepeat: '',
   // profile

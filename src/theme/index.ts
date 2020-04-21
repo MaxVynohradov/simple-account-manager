@@ -3,8 +3,8 @@ import IGeneralTheme from './interfaces';
 const Theme: IGeneralTheme = {
   container: {
     general: {
-      minWidth: '900px',
-      width: '1200px',
+      minWidth: '970px',
+      width: '970px',
     },
   },
   font: {

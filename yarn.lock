@@ -6835,7 +6835,7 @@ jss-plugin-compose@10.1.1:
     jss "10.1.1"
     tiny-warning "^1.0.2"
 
-jss-plugin-default-unit@10.1.1:
+jss-plugin-default-unit@10.1.1, jss-plugin-default-unit@^10.1.1:
   version "10.1.1"
   resolved "https://registry.npmjs.org/jss-plugin-default-unit/-/jss-plugin-default-unit-10.1.1.tgz#2df86016dfe73085eead843f5794e3890e9c5c47"
   integrity sha512-UkeVCA/b3QEA4k0nIKS4uWXDCNmV73WLHdh2oDGZZc3GsQtlOCuiH3EkB/qI60v2MiCq356/SYWsDXt21yjwdg==

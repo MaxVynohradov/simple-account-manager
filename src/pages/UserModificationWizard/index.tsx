@@ -8,6 +8,7 @@ import Capabilities from './pages/Capabilities';
 import Contacts from './pages/Contacts';
 import Profile from './pages/Profile';
 import useStyles from './styles';
+import WizardValidationSchema from './wizardFormValidation';
 import wizardInitialValues from './wizardInitialValues';
 
 const UserModificationWizard: React.FC<{}> = () => {
@@ -34,7 +35,7 @@ const UserModificationWizard: React.FC<{}> = () => {
         <div className={shouldTabBeActive('capabilities')}>4. Capabilities</div>
       </div>
       <div className={classes.wizardBody}>
-        <Formik initialValues={wizardInitialValues} onSubmit={onFormSubmit}>
+        <Formik initialValues={wizardInitialValues} onSubmit={onFormSubmit} validationSchema={WizardValidationSchema}>
           <Form>
             <Switch>
               <Redirect from={`${url}`} to={`${url}/account`} exact />

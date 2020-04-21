@@ -1,7 +1,14 @@
 import { createUseStyles } from 'react-jss';
 
-import IGeneralTheme from '../../../../theme/interfaces';
-
-const useStyles = createUseStyles((theme: IGeneralTheme) => ({}));
+const useStyles = createUseStyles({
+  wizardBodyContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  columnContainer: {
+    width: '50%',
+    marginRight: '0',
+  },
+});
 
 export default useStyles;

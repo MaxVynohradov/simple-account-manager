@@ -1,5 +1,6 @@
 import jss from 'jss';
 import jssPluginCamelCase from 'jss-plugin-camel-case';
+import jssPluginDefaultUnit from 'jss-plugin-default-unit'
 import jssPluginGlobal from 'jss-plugin-global';
 import jssPluginNested from 'jss-plugin-nested';
 import React from 'react';
@@ -12,7 +13,7 @@ import UserModificationWizard from './pages/UserModificationWizard';
 import style from './styles';
 import theme from './theme';
 
-jss.use(jssPluginGlobal(), jssPluginNested(), jssPluginCamelCase());
+jss.use(jssPluginGlobal(), jssPluginNested(), jssPluginCamelCase(), jssPluginDefaultUnit());
 
 const App: React.FC = () => {
   return (

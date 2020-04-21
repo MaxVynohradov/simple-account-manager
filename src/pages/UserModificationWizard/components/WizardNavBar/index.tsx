@@ -13,7 +13,7 @@ const WizardNavBar: React.FC<Props> = ({ actionHandlers }: Props) => {
   return (
     <div className={classes.navbarContainer}>
       {actionHandlers.map(({ link, actionType }) => (
-        <WizardNavButton link={link} actionType={actionType} />
+        <WizardNavButton key={link} link={link} actionType={actionType} />
       ))}
     </div>
   );
