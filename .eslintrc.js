@@ -67,6 +67,7 @@ module.exports = {
       { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }
     ],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+    'react/button-has-type': 0,
     'import/no-extraneous-dependencies': [2, { devDependencies: ['**/test.tsx', '**/test.ts'] }],
     '@typescript-eslint/indent': [2, 2],
     'unicorn/filename-case': 0,

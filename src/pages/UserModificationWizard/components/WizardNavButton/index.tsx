@@ -20,6 +20,14 @@ const WizardNavButton: React.FC<Props> = ({ link, actionType }: Props) => {
   };
 
   const handleClick = (): void => history.push(link);
+
+  if (actionType === 'Finish')
+    return (
+      <button type="submit" className={buttonTypeToClass()}>
+        <span>{actionType}</span>
+      </button>
+    );
+
   return (
     <button type="button" className={buttonTypeToClass()} onClick={handleClick}>
       <span>{actionType}</span>

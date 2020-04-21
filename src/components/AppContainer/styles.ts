@@ -13,7 +13,7 @@ const useStyles = createUseStyles((theme: IGeneralTheme) => ({
     margin: '30px auto 5px auto',
   },
   appContainerHeader: {
-    marginBottom: '45px',
+    margin: '25px 0 45px 0',
     color: theme.font.color.regular,
     fontSize: '35px',
     fontWeight: 'bold',
