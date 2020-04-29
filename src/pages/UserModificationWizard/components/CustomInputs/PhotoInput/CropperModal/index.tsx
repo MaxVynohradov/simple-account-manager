@@ -1,24 +1,36 @@
 /* eslint-disable no-unused-expressions */
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Cropper from 'react-easy-crop';
+import { useTheme } from 'react-jss';
 
 import useStyles from './styles';
 
 interface Props {
+  isVisible: boolean;
   updateImageFile: (file: File) => void;
   image: HTMLImageElement;
   imageBase64: string | ArrayBuffer | null;
 }
 
-const PhotoCropper: React.FC<Props> = ({ updateImageFile, image, imageBase64 }: Props) => {
+const PhotoCropper: React.FC<Props> = ({ updateImageFile, image, imageBase64, isVisible }: Props) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixelsState, setCroppedAreaPixelsState] = useState({ width: 1, height: 1 });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const cropContainerRef = useRef<HTMLDivElement>(null);
   const ctx: CanvasRenderingContext2D | null = canvasRef.current ? canvasRef.current.getContext('2d') : null;
 
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+
+  useEffect(() => {
+    if (isVisible) {
+      if (cropContainerRef.current) cropContainerRef.current.style.visibility = 'visible';
+    } else if (cropContainerRef.current) {
+      cropContainerRef.current.style.visibility = 'hidden';
+    }
+  }, [isVisible]);
 
   const onCropComplete = useCallback(
     (croppedArea, croppedAreaPixels) => {
@@ -49,8 +61,10 @@ const PhotoCropper: React.FC<Props> = ({ updateImageFile, image, imageBase64 }: 
   }, [updateImageFile]);
 
   return (
-    <div className={classes.cropContainer}>
-      <button onClick={handleCropSubmit}>Crop!</button>
+    <div className={classes.cropContainer} ref={cropContainerRef}>
+      <div className="button-container">
+        <button onClick={handleCropSubmit}>Crop!</button>
+      </div>
       <canvas ref={canvasRef} width={croppedAreaPixelsState.width} height={croppedAreaPixelsState.height} />
       <Cropper
         image={imageBase64 as string}

@@ -25,6 +25,18 @@ const Theme: IGeneralTheme = {
       inactiveContainerHeader: 'rgba(151,186,244, .2)',
     },
   },
+  generalButtonStyles: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+    height: 40,
+    marginRight: 100,
+    fontWeight: 500,
+    fontSize: 14,
+    lineHeight: '16px',
+    cursor: 'pointer',
+  },
 };
 
 export default Theme;

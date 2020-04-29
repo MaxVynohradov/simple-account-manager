@@ -6,8 +6,8 @@ import { useTheme } from 'react-jss';
 import addButtonIcon from '../../../../../assets/icons/add.svg';
 import userIcon from '../../../../../assets/icons/list of users.svg';
 import { IInput } from '../../../interfaces/IInput';
-import PhotoCropper from '../../CropperModal';
 import useStyles from '../styles';
+import PhotoCropper from './CropperModal';
 
 interface HTMLInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -23,6 +23,7 @@ const PhotoUploadInput: React.FC<IInput & FieldProps> = ({
   const [photo, setPhoto] = useState<File | null>(null);
   const [photoBase64, setPhotoBase64] = useState<string | ArrayBuffer | null>(null);
   const [image, setImage] = useState<HTMLImageElement>();
+  const [isCropperVisible, setIsCropperVisible] = useState<boolean>(false);
   const theme = useTheme();
   const isError = Boolean(touched[field.name] && errors[field.name]);
   const classes = useStyles({ theme, isError });
@@ -38,6 +39,7 @@ const PhotoUploadInput: React.FC<IInput & FieldProps> = ({
         setPhoto(file);
         setPhotoBase64(reader.result);
         setFieldValue('avatar', file);
+        setIsCropperVisible(true);
       };
 
       reader.readAsDataURL(file as Blob);
@@ -49,6 +51,7 @@ const PhotoUploadInput: React.FC<IInput & FieldProps> = ({
     (file: File): void => {
       setPhoto(file);
       setFieldValue('avatar', file);
+      setIsCropperVisible(false);
     },
     [setFieldValue],
   );
@@ -82,6 +85,7 @@ const PhotoUploadInput: React.FC<IInput & FieldProps> = ({
         image={image as HTMLImageElement}
         imageBase64={photoBase64}
         updateImageFile={updateCroppedImageFile}
+        isVisible={isCropperVisible}
       />
     </div>
   );
