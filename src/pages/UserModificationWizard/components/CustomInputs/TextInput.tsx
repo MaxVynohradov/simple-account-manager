@@ -23,10 +23,17 @@ const Field: React.FC<IInput & FieldProps> = ({
         <span>{label}</span>
         <span className="requiredSignSpan">{required ? '*' : ''}</span>
       </label>
-      <input {...field} type={type} name={name} className={classes.simpleInputField} value="" {...field} />
-      <ErrorMessage name={field.name}>
-        {(msg): React.ReactNode => <p className={classes.simpleInputFieldErrorMessage}>{msg}</p>}
-      </ErrorMessage>
+      <input
+        {...field}
+        type={type}
+        name={name}
+        className={classes.simpleInputField}
+        value=""
+        {...field}
+      />
+      <p className={classes.simpleInputFieldErrorMessage}>
+        <ErrorMessage name={field.name}>{(msg): string => msg}</ErrorMessage>
+      </p>
     </div>
   );
 };

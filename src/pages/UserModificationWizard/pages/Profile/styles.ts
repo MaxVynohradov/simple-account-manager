@@ -1,7 +1,9 @@
 import { createUseStyles } from 'react-jss';
 
-import IGeneralTheme from '../../../../theme/interfaces';
+import commonStyles from '../commonStyles';
 
-const useStyles = createUseStyles((theme: IGeneralTheme) => ({}));
+const useStyles = createUseStyles({
+  ...commonStyles,
+});
 
 export default useStyles;

@@ -4,7 +4,8 @@ import IGeneralTheme from '../../theme/interfaces';
 
 const useStyles = createUseStyles((theme: IGeneralTheme) => ({
   header: {
-    background: 'radial-gradient(50% 28800% at 50% 68.33%, #4E86E4 0%, #2F68C8 100%)',
+    background:
+      'radial-gradient(50% 28800% at 50% 68.33%, #4E86E4 0%, #2F68C8 100%)',
     boxShadow: '0px 1px 5px #C1CEDE',
     height: '60px',
     width: '100%',

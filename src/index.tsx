@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.querySelector('#root')
+  document.querySelector('#root'),
 );
 
 serviceWorker.unregister();

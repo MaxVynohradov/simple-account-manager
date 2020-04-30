@@ -7,7 +7,10 @@ interface IAppContainerProps {
   children?: React.ReactNode;
 }
 
-const AppContainer: React.FC<IAppContainerProps> = ({ headerText, children }: IAppContainerProps) => {
+const AppContainer: React.FC<IAppContainerProps> = ({
+  headerText,
+  children,
+}: IAppContainerProps) => {
   const classes = useStyles();
   return (
     <div className={classes.appContainer}>

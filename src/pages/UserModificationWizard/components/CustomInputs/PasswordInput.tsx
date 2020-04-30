@@ -45,9 +45,9 @@ const PasswordField: React.FC<IInput & FieldProps> = ({
           onClick={handlePasswordVisibility}
         />
       </div>
-      <ErrorMessage name={field.name}>
-        {(msg): React.ReactNode => <p className={classes.simpleInputFieldErrorMessage}>{msg}</p>}
-      </ErrorMessage>
+      <p className={classes.simpleInputFieldErrorMessage}>
+        <ErrorMessage name={field.name}>{(msg): string => msg}</ErrorMessage>
+      </p>
     </div>
   );
 };

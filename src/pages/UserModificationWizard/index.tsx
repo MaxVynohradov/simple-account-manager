@@ -1,6 +1,12 @@
 import { Form, Formik } from 'formik';
 import React, { useCallback } from 'react';
-import { Redirect, Route, Switch, useLocation, useRouteMatch } from 'react-router-dom';
+import {
+  Redirect,
+  Route,
+  Switch,
+  useLocation,
+  useRouteMatch,
+} from 'react-router-dom';
 
 import IWizardFormValues from './interfaces/wizardFormValues';
 import Account from './pages/Account';
@@ -18,11 +24,13 @@ const UserModificationWizard: React.FC<{}> = () => {
   const currentTabName = pathname.trimEnd().split('/').pop();
 
   const shouldTabBeActive = useCallback(
-    (tabName: string): string | undefined => (currentTabName === tabName ? classes.wizardHeaderActiveItem : undefined),
+    (tabName: string): string | undefined =>
+      currentTabName === tabName ? classes.wizardHeaderActiveItem : undefined,
     [currentTabName, classes.wizardHeaderActiveItem],
   );
 
   const onFormSubmit = useCallback((values: IWizardFormValues): void => {
+    // eslint-disable-next-line no-console
     console.log('onFormSubmit', values);
   }, []);
 
@@ -35,7 +43,11 @@ const UserModificationWizard: React.FC<{}> = () => {
         <div className={shouldTabBeActive('capabilities')}>4. Capabilities</div>
       </div>
       <div className={classes.wizardBody}>
-        <Formik initialValues={wizardInitialValues} onSubmit={onFormSubmit} validationSchema={WizardValidationSchema}>
+        <Formik
+          initialValues={wizardInitialValues}
+          onSubmit={onFormSubmit}
+          validationSchema={WizardValidationSchema}
+        >
           <Form>
             <Switch>
               <Redirect from={`${url}`} to={`${url}/account`} exact />

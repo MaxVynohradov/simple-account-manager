@@ -12,21 +12,32 @@ interface Props {
   imageBase64: string | ArrayBuffer | null;
 }
 
-const PhotoCropper: React.FC<Props> = ({ updateImageFile, image, imageBase64, isVisible }: Props) => {
+const PhotoCropper: React.FC<Props> = ({
+  updateImageFile,
+  image,
+  imageBase64,
+  isVisible,
+}: Props) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
-  const [croppedAreaPixelsState, setCroppedAreaPixelsState] = useState({ width: 1, height: 1 });
+  const [croppedAreaPixelsState, setCroppedAreaPixelsState] = useState({
+    width: 1,
+    height: 1,
+  });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const cropContainerRef = useRef<HTMLDivElement>(null);
-  const ctx: CanvasRenderingContext2D | null = canvasRef.current ? canvasRef.current.getContext('2d') : null;
+  const ctx: CanvasRenderingContext2D | null = canvasRef.current
+    ? canvasRef.current.getContext('2d')
+    : null;
 
   const theme = useTheme();
   const classes = useStyles({ theme });
 
   useEffect(() => {
     if (isVisible) {
-      if (cropContainerRef.current) cropContainerRef.current.style.visibility = 'visible';
+      if (cropContainerRef.current)
+        cropContainerRef.current.style.visibility = 'visible';
     } else if (cropContainerRef.current) {
       cropContainerRef.current.style.visibility = 'hidden';
     }
@@ -36,7 +47,12 @@ const PhotoCropper: React.FC<Props> = ({ updateImageFile, image, imageBase64, is
     (croppedArea, croppedAreaPixels) => {
       setCroppedAreaPixelsState(croppedAreaPixels);
 
-      ctx?.clearRect(0, 0, canvasRef.current?.width || 0, canvasRef.current?.height || 0);
+      ctx?.clearRect(
+        0,
+        0,
+        canvasRef.current?.width || 0,
+        canvasRef.current?.height || 0,
+      );
 
       ctx?.drawImage(
         image,
@@ -65,7 +81,11 @@ const PhotoCropper: React.FC<Props> = ({ updateImageFile, image, imageBase64, is
       <div className="button-container">
         <button onClick={handleCropSubmit}>Crop!</button>
       </div>
-      <canvas ref={canvasRef} width={croppedAreaPixelsState.width} height={croppedAreaPixelsState.height} />
+      <canvas
+        ref={canvasRef}
+        width={croppedAreaPixelsState.width}
+        height={croppedAreaPixelsState.height}
+      />
       <Cropper
         image={imageBase64 as string}
         crop={crop}

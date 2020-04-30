@@ -21,7 +21,9 @@ const PhotoUploadInput: React.FC<IInput & FieldProps> = ({
   type,
 }: IInput & FieldProps) => {
   const [photo, setPhoto] = useState<File | null>(null);
-  const [photoBase64, setPhotoBase64] = useState<string | ArrayBuffer | null>(null);
+  const [photoBase64, setPhotoBase64] = useState<string | ArrayBuffer | null>(
+    null,
+  );
   const [image, setImage] = useState<HTMLImageElement>();
   const [isCropperVisible, setIsCropperVisible] = useState<boolean>(false);
   const theme = useTheme();
@@ -79,7 +81,9 @@ const PhotoUploadInput: React.FC<IInput & FieldProps> = ({
         {` ${label}`}
       </label>
       <ErrorMessage name={field.name}>
-        {(msg): React.ReactNode => <p className={classes.simpleInputFieldErrorMessage}>{msg}</p>}
+        {(msg): React.ReactNode => (
+          <p className={classes.simpleInputFieldErrorMessage}>{msg}</p>
+        )}
       </ErrorMessage>
       <PhotoCropper
         image={image as HTMLImageElement}

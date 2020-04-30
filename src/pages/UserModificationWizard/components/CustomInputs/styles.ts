@@ -23,7 +23,7 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     width: '300px',
-    margin: '24px auto 24px 100px',
+    margin: '24px auto 10px 100px',
   },
   simpleInputLabel: {
     ...defaultLabelStyle,
@@ -38,7 +38,8 @@ const useStyles = createUseStyles({
     width: 300,
     height: 40,
     background: (props: Props): string => props.theme.background.color.white,
-    border: (props: Props): string => `1px solid ${props.isError ? errorColor : '#C1CFE0'}`,
+    border: (props: Props): string =>
+      `1px solid ${props.isError ? errorColor : '#C1CFE0'}`,
     boxSizing: 'border-box',
     margin: '5px 0 2px 0',
     fontWeight: 500,
@@ -55,6 +56,7 @@ const useStyles = createUseStyles({
     fontSize: 12,
     color: errorColor,
     paddingLeft: 10,
+    height: 15,
   },
   passwordInputWrapper: {
     position: 'relative',

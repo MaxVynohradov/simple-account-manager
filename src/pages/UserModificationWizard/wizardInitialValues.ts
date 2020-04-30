@@ -1,4 +1,4 @@
-import IWizardFormValues from "./interfaces/wizardFormValues";
+import IWizardFormValues from './interfaces/wizardFormValues';
 
 const wizardInitialValues: IWizardFormValues = {
   // account

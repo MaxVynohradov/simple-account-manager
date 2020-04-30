@@ -5,7 +5,9 @@ import IActionHandler from '../../interfaces/actionHandler';
 import WizardTabProps from '../../interfaces/wizardTabProps';
 // import useStyles from './styles';
 
-const UserCapabilitiesWizardTab: React.FC<WizardTabProps> = ({ baseUrl }: WizardTabProps) => {
+const UserCapabilitiesWizardTab: React.FC<WizardTabProps> = ({
+  baseUrl,
+}: WizardTabProps) => {
   // const classes = useStyles();
   const actionHandlers: IActionHandler[] = [
     { link: `${baseUrl}/contacts`, actionType: 'Back' },
