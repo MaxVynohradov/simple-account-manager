@@ -27,7 +27,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   plugins: [
-    'react', 
+    'react',
     '@typescript-eslint',
     'prettier',
     'simple-import-sort',
@@ -93,6 +93,7 @@ module.exports = {
       },
     ],
     'guard-for-in': 'error',
+    'max-len': ["error", { "code": 120 }],
     'handle-callback-err': 'error',
     'max-depth': 'error',
     'max-params': ['error', 5],
