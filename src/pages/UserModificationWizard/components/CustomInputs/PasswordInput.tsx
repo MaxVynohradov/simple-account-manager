@@ -31,7 +31,6 @@ const PasswordField: React.FC<IInput & FieldProps> = ({
       </label>
       <div className={classes.passwordInputWrapper}>
         <input
-          {...field}
           type={isPasswordShown ? 'text' : 'password'}
           name={name}
           className={classes.simpleInputField}

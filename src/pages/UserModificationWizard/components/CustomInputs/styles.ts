@@ -25,6 +25,17 @@ const useStyles = createUseStyles({
     width: '300px',
     margin: '24px auto 10px 100px',
   },
+  radioButtonGroupInputBlock: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '60%',
+    margin: '16px 0 0 0',
+  },
+  radioButtonInput: {
+    marginRight: 10,
+    cursor: 'pointer',
+  },
   simpleInputLabel: {
     ...defaultLabelStyle,
     display: 'flex',
@@ -32,6 +43,15 @@ const useStyles = createUseStyles({
     '& .requiredSignSpan': {
       paddingRight: 5,
     },
+  },
+  radioButtonInputLabel: {
+    ...defaultLabelStyle,
+    display: 'flex',
+    justifyContent: 'space-between',
+    '& .requiredSignSpan': {
+      paddingRight: 5,
+    },
+    cursor: 'pointer',
   },
   simpleInputField: {
     display: 'flex',

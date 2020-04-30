@@ -24,7 +24,6 @@ const Field: React.FC<IInput & FieldProps> = ({
         <span className="requiredSignSpan">{required ? '*' : ''}</span>
       </label>
       <input
-        {...field}
         type={type}
         name={name}
         className={classes.simpleInputField}

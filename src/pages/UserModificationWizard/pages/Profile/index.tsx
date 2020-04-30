@@ -1,6 +1,7 @@
 import { Field as FormikField } from 'formik';
 import React from 'react';
 
+import GenderRadioButtonsGroup from '../../components/CustomInputs/GenderRadioButtonsGroup';
 import SimpleInputField from '../../components/CustomInputs/TextInput';
 import WizardNavBar from '../../components/WizardNavBar';
 import IActionHandler from '../../interfaces/actionHandler';
@@ -60,7 +61,7 @@ const UserProfileWizardTab: React.FC<WizardTabProps> = ({
             type="text"
             name="gender"
             label="Gender"
-            component={SimpleInputField}
+            component={GenderRadioButtonsGroup}
           />
         </div>
       </div>

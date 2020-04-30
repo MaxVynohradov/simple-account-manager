@@ -48,7 +48,7 @@ const WizardValidationSchema = Yup.object().shape({
     .min(10, 'Address Too Short!')
     .max(180, 'Address Too Long!')
     .required('Required'),
-  gender: Yup.string().oneOf(['male', 'female']).required('Required'),
+  gender: Yup.string().oneOf(['Male', 'Female']).required('Required'),
 });
 
 export default WizardValidationSchema;
