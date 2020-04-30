@@ -25,6 +25,7 @@
     "jss-plugin-default-unit": "^10.1.1",
     "jss-plugin-global": "^10.1.1",
     "jss-plugin-nested": "^10.1.1",
+    "loglevel": "^1.6.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-easy-crop": "^2.1.1",
