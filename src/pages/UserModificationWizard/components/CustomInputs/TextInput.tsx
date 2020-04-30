@@ -9,6 +9,7 @@ import useStyles from './styles';
 const Field: React.FC<IInput & FieldProps> = ({
   label,
   field,
+  required,
   name,
   form: { touched, errors },
   type,
@@ -19,7 +20,8 @@ const Field: React.FC<IInput & FieldProps> = ({
   return (
     <div className={classes.simpleInputBlock}>
       <label htmlFor={name} className={classes.simpleInputLabel}>
-        {label}
+        <span>{label}</span>
+        <span className="requiredSignSpan">{required ? '*' : ''}</span>
       </label>
       <input {...field} type={type} name={name} className={classes.simpleInputField} value="" {...field} />
       <ErrorMessage name={field.name}>
@@ -27,6 +29,10 @@ const Field: React.FC<IInput & FieldProps> = ({
       </ErrorMessage>
     </div>
   );
+};
+
+Field.defaultProps = {
+  required: false,
 };
 
 export default memo(Field);

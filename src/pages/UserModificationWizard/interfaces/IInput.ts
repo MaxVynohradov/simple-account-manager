@@ -13,6 +13,7 @@ export interface IInputComponent {
 export interface IInput {
   label?: string;
   type?: string;
+  required?: boolean;
   name: string;
   inputComponent?: React.FC<IInputComponent>;
 }

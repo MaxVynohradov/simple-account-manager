@@ -25,7 +25,14 @@ const useStyles = createUseStyles({
     width: '300px',
     margin: '24px auto 24px 100px',
   },
-  simpleInputLabel: defaultLabelStyle,
+  simpleInputLabel: {
+    ...defaultLabelStyle,
+    display: 'flex',
+    justifyContent: 'space-between',
+    '& .requiredSignSpan': {
+      paddingRight: 5,
+    },
+  },
   simpleInputField: {
     display: 'flex',
     width: 300,

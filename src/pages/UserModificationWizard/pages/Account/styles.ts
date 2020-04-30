@@ -1,14 +1,9 @@
 import { createUseStyles } from 'react-jss';
 
+import commonStyles from '../commonStyles';
+
 const useStyles = createUseStyles({
-  wizardBodyContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  columnContainer: {
-    width: '50%',
-    marginRight: '0',
-  },
+  ...commonStyles,
 });
 
 export default useStyles;

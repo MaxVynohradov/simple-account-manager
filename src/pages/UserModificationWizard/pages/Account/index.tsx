@@ -11,7 +11,7 @@ import useStyles from './styles';
 
 const UserAccountWizardTab: React.FC<WizardTabProps> = ({ baseUrl }: WizardTabProps) => {
   const classes = useStyles();
-  const actionHandlers: IActionHandler[] = [{ link: `${baseUrl}/profile`, actionType: 'Finish' }];
+  const actionHandlers: IActionHandler[] = [{ link: `${baseUrl}/profile`, actionType: 'Forward' }];
   return (
     <>
       <div className={classes.wizardBodyContainer}>
