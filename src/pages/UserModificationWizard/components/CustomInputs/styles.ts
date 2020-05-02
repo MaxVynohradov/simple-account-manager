@@ -25,6 +25,13 @@ const useStyles = createUseStyles({
     width: '300px',
     margin: '24px auto 10px 100px',
   },
+  dataPickerInputBlock: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    width: 200,
+    margin: '24px auto 10px 100px',
+  },
   radioButtonGroupInputBlock: {
     display: 'flex',
     flexDirection: 'row',
@@ -70,6 +77,23 @@ const useStyles = createUseStyles({
       border: '1px solid #A1C4FF',
     },
   },
+  birthDateDataPicker: {
+    display: 'flex',
+    width: 200,
+    height: 40,
+    background: (props: Props): string => props.theme.background.color.white,
+    border: (props: Props): string =>
+      `1px solid ${props.isError ? errorColor : '#C1CFE0'}`,
+    boxSizing: 'border-box',
+    margin: '5px 0 2px 0',
+    fontWeight: 500,
+    fontSize: 14,
+    lineHeight: 16,
+    paddingLeft: 10,
+    '&:focus': {
+      border: '1px solid #A1C4FF',
+    },
+  },
   simpleInputFieldErrorMessage: {
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -82,6 +106,14 @@ const useStyles = createUseStyles({
     position: 'relative',
   },
   passwordToggle: {
+    position: 'absolute',
+    top: 17,
+    right: 14,
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
+  dataPickerToggle: {
     position: 'absolute',
     top: 17,
     right: 14,
@@ -125,6 +157,25 @@ const useStyles = createUseStyles({
       width: 18,
       objectFit: 'cover',
     },
+  },
+  dpWeek: {
+    background: '#FAFCFF',
+    borderColor: '#FAFCFF',
+  },
+  dpActiveDay: {
+    background: '#FAFCFF',
+    borderColor: '#FAFCFF',
+    fontWeight: 500,
+    fontSize: '14px',
+    textAlign: 'right',
+    color: '#475666',
+    '& :hover': {
+      background: '#FAFCEE',
+    },
+  },
+  dpInActiveDay: {
+    background: '#FFFFFF',
+    color: '#FFFFFF',
   },
 });
 

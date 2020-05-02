@@ -22,15 +22,11 @@ const WizardValidationSchema = Yup.object().shape({
     .min(8, 'Password is too short - should be 8 chars minimum.')
     .oneOf([Yup.ref('password'), null], 'Passwords must match'),
   avatar: Yup.mixed()
-    .test(
-      'fileSize',
-      'File too large',
-      (value) => value && value.size <= FILE_SIZE,
+    .test('fileSize', 'File too large', (value) =>
+      value ? value.size <= FILE_SIZE : true,
     )
-    .test(
-      'fileFormat',
-      'Unsupported Format',
-      (value) => value && SUPPORTED_FORMATS.has(value.type),
+    .test('fileFormat', 'Unsupported Format', (value) =>
+      value ? SUPPORTED_FORMATS.has(value.type) : true,
     ),
   firstName: Yup.string()
     .min(2, 'User Name Too Short!')
@@ -41,7 +37,7 @@ const WizardValidationSchema = Yup.object().shape({
     .max(70, 'User Name Too Long!')
     .required('Required'),
   birthDate: Yup.date()
-    .max(dayjs().subtract(18, 'year').toDate())
+    .max(dayjs().subtract(18, 'year').toDate(), 'User must be older 18')
     .required('Required'),
   email: Yup.string().email('Incorrect email format').required('Required'), // TODO валидация на уникальность в базе
   address: Yup.string()

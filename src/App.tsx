@@ -1,3 +1,5 @@
+import 'react-datepicker/dist/react-datepicker.css';
+
 import jss from 'jss';
 import jssPluginCamelCase from 'jss-plugin-camel-case';
 import jssPluginDefaultUnit from 'jss-plugin-default-unit';

@@ -93,6 +93,8 @@ module.exports = {
       },
     ],
     'guard-for-in': 'error',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
     'max-len': ["error", { "code": 120 }],
     'handle-callback-err': 'error',
     'max-depth': 'error',

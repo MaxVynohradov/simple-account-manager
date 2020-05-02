@@ -1,6 +1,7 @@
 import { Field as FormikField } from 'formik';
 import React from 'react';
 
+import DateField from '../../components/CustomInputs/DateInput';
 import GenderRadioButtonsGroup from '../../components/CustomInputs/GenderRadioButtonsGroup';
 import SimpleInputField from '../../components/CustomInputs/TextInput';
 import WizardNavBar from '../../components/WizardNavBar';
@@ -14,7 +15,7 @@ const UserProfileWizardTab: React.FC<WizardTabProps> = ({
   const classes = useStyles();
   const actionHandlers: IActionHandler[] = [
     { link: `${baseUrl}/account`, actionType: 'Back' },
-    { link: `${baseUrl}/contacts`, actionType: 'Forward' },
+    { link: `${baseUrl}/contacts`, actionType: 'Finish' },
   ];
   return (
     <>
@@ -39,7 +40,7 @@ const UserProfileWizardTab: React.FC<WizardTabProps> = ({
             required
             name="birthDate"
             label="Birth date"
-            component={SimpleInputField}
+            component={DateField}
           />
         </div>
         <div className={classes.columnContainer}>
