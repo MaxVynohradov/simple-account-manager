@@ -15,7 +15,7 @@ const UserProfileWizardTab: React.FC<WizardTabProps> = ({
   const classes = useStyles();
   const actionHandlers: IActionHandler[] = [
     { link: `${baseUrl}/account`, actionType: 'Back' },
-    { link: `${baseUrl}/contacts`, actionType: 'Finish' },
+    { link: `${baseUrl}/contacts`, actionType: 'Forward' },
   ];
   return (
     <>

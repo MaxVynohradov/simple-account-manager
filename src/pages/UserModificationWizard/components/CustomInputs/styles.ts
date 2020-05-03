@@ -30,7 +30,7 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     width: 200,
-    margin: '24px auto 10px 100px',
+    margin: '24px auto 50px 100px',
   },
   radioButtonGroupInputBlock: {
     display: 'flex',

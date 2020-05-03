@@ -40,6 +40,7 @@ const useStyles = createUseStyles((theme: IGeneralTheme) => ({
     backgroundColor: theme.background.color.activeContainerBody,
     minHeight: '100px',
     width: '100%',
+    paddingTop: 25,
   },
 }));
 

@@ -17,9 +17,11 @@ const wizardInitialValues: IWizardFormValues = {
   company: '',
   githubLink: '',
   facebookLink: '',
-  mainLanguage: '',
+  mainLanguage: {},
   fax: '',
-  phones: ['', ''],
+  phoneNumber1: '',
+  phoneNumber2: '',
+  phoneNumber3: '',
   // capabilities
   skills: ['', ''],
   additionalInfo: '',

@@ -1,3 +1,8 @@
+interface IMainLanguage {
+  key?: string;
+  value?: string;
+}
+
 interface IWizardFormValues {
   // account
   avatar: File | FileList | null;
@@ -15,9 +20,11 @@ interface IWizardFormValues {
   company: string;
   githubLink: string;
   facebookLink: string;
-  mainLanguage: string;
+  mainLanguage: IMainLanguage;
   fax: string;
-  phones: string[];
+  phoneNumber1: string;
+  phoneNumber2: string;
+  phoneNumber3: string;
   // capabilities
   skills: string[];
   additionalInfo: string;
