@@ -1,6 +1,7 @@
 import { Field as FormikField } from 'formik';
 import React from 'react';
 
+import FaxField from '../../components/CustomInputs/FaxInput';
 import LangDropDownField from '../../components/CustomInputs/LangDropDownInput';
 import SimpleInputField from '../../components/CustomInputs/TextInput';
 import WizardNavBar from '../../components/WizardNavBar';
@@ -49,11 +50,11 @@ const UserContactsWizardTab: React.FC<WizardTabProps> = ({
         </div>
         <div className={classes.columnContainer}>
           <FormikField
-            type="text"
+            type="tel"
             required
             name="fax"
             label="Fax"
-            component={SimpleInputField}
+            component={FaxField}
           />
           <FormikField
             type="text"

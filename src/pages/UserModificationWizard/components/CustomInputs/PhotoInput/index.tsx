@@ -20,7 +20,7 @@ const PhotoUploadInput: React.FC<IInput & FieldProps> = ({
   form: { touched, errors, setFieldValue },
   type,
 }: IInput & FieldProps) => {
-  const [photo, setPhoto] = useState<File | null>(null);
+  const [photo, setPhoto] = useState<File | null>(field.value);
   const [photoBase64, setPhotoBase64] = useState<string | ArrayBuffer | null>(
     null,
   );

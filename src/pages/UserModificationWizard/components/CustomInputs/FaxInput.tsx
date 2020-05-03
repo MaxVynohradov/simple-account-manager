@@ -1,14 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
-// https://github.com/JedWatson/react-select/issues/3915
-
 import { ErrorMessage, FieldProps } from 'formik';
 import React, { memo } from 'react';
+import InputMask from 'react-input-mask';
 import { useTheme } from 'react-jss';
-import Select from 'react-select';
 
-import { IInput } from '../../../interfaces/IInput';
-import useStyles from '../styles';
-import SELECT_LIST from './data';
+import { IInput } from '../../interfaces/IInput';
+import useStyles from './styles';
 
 const Field: React.FC<IInput & FieldProps> = ({
   form: { touched, errors, setFieldValue, setFieldTouched },
@@ -27,22 +24,20 @@ const Field: React.FC<IInput & FieldProps> = ({
         <span>{label}</span>
         <span className="requiredSignSpan">{required ? '*' : ''}</span>
       </label>
-      <Select
-        type={type}
-        label="Language"
-        options={SELECT_LIST}
-        required
-        // styles={colourStyles}
-        name={name}
+      <InputMask
         {...field}
+        mask="+7 (999) 999-99-99"
+        type={type}
+        name={name}
+        disabled={false}
         value={field.value}
-        onChange={(value): void => {
-          setFieldValue('mainLanguage', value);
+        onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+          setFieldValue('fax', event.target.value);
         }}
         onBlur={(): void => {
           setFieldTouched('mainLanguage', true);
         }}
-        // className={classes.simpleInputField}
+        className={classes.simpleInputField}
       />
       <p className={classes.simpleInputFieldErrorMessage}>
         <ErrorMessage name={field.name}>{(msg): string => msg}</ErrorMessage>

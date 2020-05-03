@@ -39,12 +39,16 @@ const WizardValidationSchema = Yup.object().shape({
   birthDate: Yup.date()
     .max(dayjs().subtract(18, 'year').toDate(), 'User must be older 18')
     .required('Required'),
-  email: Yup.string().email('Incorrect email format').required('Required'), // TODO валидация на уникальность в базе
+  email: Yup.string().email('Incorrect email format').required('Required'),
   address: Yup.string()
-    .min(10, 'Address Too Short!')
+    .min(5, 'Address Too Short!')
     .max(180, 'Address Too Long!')
     .required('Required'),
   gender: Yup.string().oneOf(['Male', 'Female']).required('Required'),
+  githubLink: Yup.string().required('Required'),
+  facebookLink: Yup.string().required('Required'),
+  mainLanguage: Yup.mixed().required('Required'),
+  fax: Yup.string().required('Required'),
 });
 
 export default WizardValidationSchema;

@@ -1,9 +1,9 @@
-interface IMainLanguage {
+export interface IMainLanguage {
   key?: string;
   value?: string;
 }
 
-interface IWizardFormValues {
+export interface IWizardFormValues {
   // account
   avatar: File | FileList | null;
   userName: string;

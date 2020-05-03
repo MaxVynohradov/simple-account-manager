@@ -22,7 +22,6 @@ const DateField: React.FC<IInput & FieldProps> = ({
   name,
   form: { touched, errors, setFieldValue, setFieldTouched },
 }: IInput & FieldProps) => {
-  const [value, setValue] = useState<Date | null>(null);
   const [monthOnCalendar, setMonthOnCalendar] = useState<number>(
     dayjs(initialSelectedDay).month(),
   );
@@ -34,7 +33,6 @@ const DateField: React.FC<IInput & FieldProps> = ({
 
   const handleChange = useCallback(
     (_value: Date): void => {
-      setValue(_value);
       setFieldValue(field.name, _value);
     },
     [field.name, setFieldValue],
@@ -61,7 +59,7 @@ const DateField: React.FC<IInput & FieldProps> = ({
           onMonthChange={(date): void => {
             setMonthOnCalendar(dayjs(date).month());
           }}
-          value={value ? dayjs(value).format('DD/MM/YYYY') : ''}
+          value={field.value ? dayjs(field.value).format('DD/MM/YYYY') : ''}
           showPopperArrow={false}
           name={name}
           onChange={handleChange}
