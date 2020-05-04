@@ -3,6 +3,7 @@ import React from 'react';
 
 import FaxField from '../../components/CustomInputs/FaxInput';
 import LangDropDownField from '../../components/CustomInputs/LangDropDownInput';
+import PhoneNumberInputGroup from '../../components/CustomInputs/PhoneNumberInputGroup';
 import SimpleInputField from '../../components/CustomInputs/TextInput';
 import WizardNavBar from '../../components/WizardNavBar';
 import IActionHandler from '../../interfaces/actionHandler';
@@ -56,24 +57,7 @@ const UserContactsWizardTab: React.FC<WizardTabProps> = ({
             label="Fax"
             component={FaxField}
           />
-          <FormikField
-            type="text"
-            name="phoneNumber1"
-            label="Phone #1"
-            component={SimpleInputField}
-          />
-          <FormikField
-            type="text"
-            name="phoneNumber2"
-            label="Phone #2"
-            component={SimpleInputField}
-          />
-          <FormikField
-            type="text"
-            name="phoneNumber3"
-            label="Phone #3"
-            component={SimpleInputField}
-          />
+          <PhoneNumberInputGroup />
         </div>
       </div>
       <WizardNavBar actionHandlers={actionHandlers} />

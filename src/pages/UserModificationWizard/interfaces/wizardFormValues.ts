@@ -22,9 +22,7 @@ export interface IWizardFormValues {
   facebookLink: string;
   mainLanguage: IMainLanguage;
   fax: string;
-  phoneNumber1: string;
-  phoneNumber2: string;
-  phoneNumber3: string;
+  phoneNumbers: string[];
   // capabilities
   skills: string[];
   additionalInfo: string;

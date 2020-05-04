@@ -19,9 +19,7 @@ const wizardInitialValues: IWizardFormValues = {
   facebookLink: '',
   mainLanguage: {},
   fax: '',
-  phoneNumber1: '',
-  phoneNumber2: '',
-  phoneNumber3: '',
+  phoneNumbers: [''],
   // capabilities
   skills: ['', ''],
   additionalInfo: '',

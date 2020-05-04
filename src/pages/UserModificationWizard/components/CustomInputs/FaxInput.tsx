@@ -27,15 +27,16 @@ const Field: React.FC<IInput & FieldProps> = ({
       <InputMask
         {...field}
         mask="+7 (999) 999-99-99"
+        placeholder="+7 (999) 999-99-99"
         type={type}
         name={name}
         disabled={false}
         value={field.value}
         onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-          setFieldValue('fax', event.target.value);
+          setFieldValue(field.name, event.target.value);
         }}
         onBlur={(): void => {
-          setFieldTouched('mainLanguage', true);
+          setFieldTouched(field.name, true);
         }}
         className={classes.simpleInputField}
       />

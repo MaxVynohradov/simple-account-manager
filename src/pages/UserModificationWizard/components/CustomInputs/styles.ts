@@ -113,6 +113,43 @@ const useStyles = createUseStyles({
       cursor: 'pointer',
     },
   },
+  phoneNumberContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    width: '300px',
+    margin: '24px auto 0 100px',
+  },
+  phoneNumberInputBlock: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    margin: '0 auto 24px 0',
+  },
+  removePhoneNumberIcon: {
+    position: 'absolute',
+    top: 17,
+    right: -24,
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
+  addPhoneNumberIcon: {
+    marginRight: 8,
+  },
+  addPhoneNumberLabel: {
+    ...defaultLabelStyle,
+    fontSize: 14,
+    fontWeight: 'normal',
+    display: 'flex',
+    justifyContent: 'left',
+    '& .requiredSignSpan': {
+      paddingRight: 5,
+    },
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
   dataPickerToggle: {
     position: 'absolute',
     top: 17,

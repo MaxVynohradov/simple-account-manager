@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import * as Yup from 'yup';
 
+// const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\(\d{2,3}\\)[ \\-]*)|(\d{2,4})[ \\-]*)*?\d{3,4}?[ \\-]*\d{3,4}?$/;
+
 const FILE_SIZE = 2 * 1024 * 1024;
 const SUPPORTED_FORMATS = new Set([
   'image/jpg',
@@ -45,10 +47,23 @@ const WizardValidationSchema = Yup.object().shape({
     .max(180, 'Address Too Long!')
     .required('Required'),
   gender: Yup.string().oneOf(['Male', 'Female']).required('Required'),
+  company: Yup.string(),
   githubLink: Yup.string().required('Required'),
   facebookLink: Yup.string().required('Required'),
   mainLanguage: Yup.mixed().required('Required'),
-  fax: Yup.string().required('Required'),
+  fax: Yup.string()
+    // .matches(phoneRegExp, 'Phone number is not valid')
+    .required('Required'),
+  phoneNumbers: Yup.array()
+    .of(
+      Yup.string()
+        // .matches(phoneRegExp, 'Phone number is not valid')
+        .required('Required'),
+    )
+    .ensure()
+    .min(1, 'Min length should be 1')
+    .max(3, 'Max length should be 3')
+    .required('Required'),
 });
 
 export default WizardValidationSchema;
