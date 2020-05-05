@@ -1,6 +1,7 @@
 import { Field as FormikField } from 'formik';
 import React from 'react';
 
+import AddressAutocompleteInput from '../../components/CustomInputs/AddressAutocompleteInput';
 import DateField from '../../components/CustomInputs/DateInput';
 import GenderRadioButtonsGroup from '../../components/CustomInputs/GenderRadioButtonsGroup';
 import SimpleInputField from '../../components/CustomInputs/TextInput';
@@ -56,7 +57,7 @@ const UserProfileWizardTab: React.FC<WizardTabProps> = ({
             required
             name="address"
             label="Address"
-            component={SimpleInputField}
+            component={AddressAutocompleteInput}
           />
           <FormikField
             type="text"
