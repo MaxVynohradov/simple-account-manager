@@ -1,8 +1,9 @@
 import { createUseStyles } from 'react-jss';
 
-import IGeneralTheme from '../../../../theme/interfaces';
+import commonStyles from '../commonStyles';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
-const useStyles = createUseStyles((theme: IGeneralTheme) => ({}));
+const useStyles = createUseStyles({
+  ...commonStyles,
+});
 
 export default useStyles;

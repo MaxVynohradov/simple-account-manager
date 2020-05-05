@@ -13,8 +13,8 @@ import SELECT_LIST from './data';
 const Field: React.FC<IInput & FieldProps> = ({
   form: { touched, errors, setFieldValue, setFieldTouched },
   label,
-  field,
   required,
+  field,
   name,
   type,
 }: IInput & FieldProps) => {
@@ -29,12 +29,13 @@ const Field: React.FC<IInput & FieldProps> = ({
       </label>
       <Select
         type={type}
-        label="Language"
+        label="Skills"
         options={SELECT_LIST}
         required
         name={name}
         {...field}
         value={field.value}
+        isMulti
         onChange={(value): void => {
           setFieldValue(field.name, value);
         }}

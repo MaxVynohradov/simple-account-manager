@@ -21,9 +21,9 @@ const wizardInitialValues: IWizardFormValues = {
   fax: '',
   phoneNumbers: [''],
   // capabilities
-  skills: ['', ''],
+  skills: [],
   additionalInfo: '',
-  myHobbies: ['', ''],
+  myHobbies: new Set<string>(),
 };
 
 export default wizardInitialValues;

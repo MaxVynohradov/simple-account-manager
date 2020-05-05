@@ -1,4 +1,4 @@
-export interface IMainLanguage {
+export interface ISelectData {
   key?: string;
   value?: string;
 }
@@ -20,13 +20,13 @@ export interface IWizardFormValues {
   company: string;
   githubLink: string;
   facebookLink: string;
-  mainLanguage: IMainLanguage;
+  mainLanguage: ISelectData;
   fax: string;
   phoneNumbers: string[];
   // capabilities
-  skills: string[];
+  skills: ISelectData[];
   additionalInfo: string;
-  myHobbies: string[];
+  myHobbies: Set<string>;
 }
 
 export default IWizardFormValues;

@@ -17,6 +17,24 @@ const defaultLabelStyle = {
   color: '#657C9A',
 };
 
+const simpleInputField = {
+  display: 'flex',
+  width: 300,
+  height: 40,
+  background: (props: Props): string => props.theme.background.color.white,
+  border: (props: Props): string =>
+    `1px solid ${props.isError ? errorColor : '#C1CFE0'}`,
+  boxSizing: 'border-box',
+  margin: '5px 0 2px 0',
+  fontWeight: 500,
+  fontSize: 14,
+  lineHeight: 16,
+  paddingLeft: 10,
+  '&:focus': {
+    border: '1px solid #A1C4FF',
+  },
+};
+
 const useStyles = createUseStyles({
   simpleInputBlock: {
     display: 'flex',
@@ -61,7 +79,44 @@ const useStyles = createUseStyles({
     cursor: 'pointer',
   },
   simpleInputField: {
-    display: 'flex',
+    ...simpleInputField,
+  },
+  textAreaInputField: {
+    ...simpleInputField,
+    lineHeight: 'none',
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingRight: 10,
+    width: 300,
+    height: 100,
+    overflow: 'hidden',
+    resize: 'none',
+  },
+  checkboxItem: {
+    ...defaultLabelStyle,
+    lineHeight: '20px',
+    margin: '10px 0 5px 0',
+    cursor: 'pointer',
+    '& label': {
+      cursor: 'pointer',
+      display: 'flex',
+    },
+    '& p': {
+      marginLeft: 5,
+      cursor: 'pointer',
+      width: 280,
+    },
+    '& input': {
+      cursor: 'pointer',
+      display: 'block',
+      width: 15,
+      height: 15,
+      background: '#4E86E4',
+      border: '3px solid #C1CFE0',
+      boxSizing: 'border-box',
+    },
+  },
+  select: {
     width: 300,
     height: 40,
     background: (props: Props): string => props.theme.background.color.white,
@@ -71,8 +126,6 @@ const useStyles = createUseStyles({
     margin: '5px 0 2px 0',
     fontWeight: 500,
     fontSize: 14,
-    lineHeight: 16,
-    paddingLeft: 10,
     '&:focus': {
       border: '1px solid #A1C4FF',
     },

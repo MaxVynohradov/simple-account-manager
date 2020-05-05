@@ -1,22 +1,17 @@
 /* eslint-disable react/jsx-props-no-spreading */
-// https://github.com/JedWatson/react-select/issues/3915
-
 import { ErrorMessage, FieldProps } from 'formik';
 import React, { memo } from 'react';
 import { useTheme } from 'react-jss';
-import Select from 'react-select';
 
-import { IInput } from '../../../interfaces/IInput';
-import useStyles from '../styles';
-import SELECT_LIST from './data';
+import { IInput } from '../../interfaces/IInput';
+import useStyles from './styles';
 
 const Field: React.FC<IInput & FieldProps> = ({
-  form: { touched, errors, setFieldValue, setFieldTouched },
   label,
   field,
   required,
   name,
-  type,
+  form: { touched, errors },
 }: IInput & FieldProps) => {
   const theme = useTheme();
   const isError = Boolean(touched[field.name] && errors[field.name]);
@@ -27,21 +22,11 @@ const Field: React.FC<IInput & FieldProps> = ({
         <span>{label}</span>
         <span className="requiredSignSpan">{required ? '*' : ''}</span>
       </label>
-      <Select
-        type={type}
-        label="Language"
-        options={SELECT_LIST}
-        required
+      <textarea
         name={name}
+        className={classes.textAreaInputField}
+        value=""
         {...field}
-        value={field.value}
-        onChange={(value): void => {
-          setFieldValue(field.name, value);
-        }}
-        onBlur={(): void => {
-          setFieldTouched(field.name, true);
-        }}
-        className={classes.select}
       />
       <p className={classes.simpleInputFieldErrorMessage}>
         <ErrorMessage name={field.name}>{(msg): string => msg}</ErrorMessage>

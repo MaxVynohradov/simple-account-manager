@@ -4,11 +4,10 @@
 import { ErrorMessage, FieldProps } from 'formik';
 import React, { memo } from 'react';
 import { useTheme } from 'react-jss';
-import Select from 'react-select';
 
 import { IInput } from '../../../interfaces/IInput';
 import useStyles from '../styles';
-import SELECT_LIST from './data';
+import CHECKBOXES_LIST from './data';
 
 const Field: React.FC<IInput & FieldProps> = ({
   form: { touched, errors, setFieldValue, setFieldTouched },
@@ -16,7 +15,6 @@ const Field: React.FC<IInput & FieldProps> = ({
   field,
   required,
   name,
-  type,
 }: IInput & FieldProps) => {
   const theme = useTheme();
   const isError = Boolean(touched[field.name] && errors[field.name]);
@@ -27,22 +25,34 @@ const Field: React.FC<IInput & FieldProps> = ({
         <span>{label}</span>
         <span className="requiredSignSpan">{required ? '*' : ''}</span>
       </label>
-      <Select
-        type={type}
-        label="Language"
-        options={SELECT_LIST}
-        required
-        name={name}
-        {...field}
-        value={field.value}
-        onChange={(value): void => {
-          setFieldValue(field.name, value);
-        }}
-        onBlur={(): void => {
-          setFieldTouched(field.name, true);
-        }}
-        className={classes.select}
-      />
+      <ul>
+        {CHECKBOXES_LIST.map((item, idx) => (
+          <li key={idx.toString()} className={classes.checkboxItem}>
+            <label htmlFor={`hobbies_${idx}`}>
+              <input
+                type="checkbox"
+                id={`hobbies_${idx}`}
+                name={`hobbies_${idx}`}
+                checked={field.value.has(item)}
+                value={item}
+                onChange={(event): void => {
+                  if (event.target.checked) {
+                    setFieldValue(
+                      field.name,
+                      field.value.add(event.target.value),
+                    );
+                  } else {
+                    field.value.delete(event.target.value);
+                    setFieldValue(field.name, field.value);
+                  }
+                  setFieldTouched(field.name, true);
+                }}
+              />
+              <p>{item}</p>
+            </label>
+          </li>
+        ))}
+      </ul>
       <p className={classes.simpleInputFieldErrorMessage}>
         <ErrorMessage name={field.name}>{(msg): string => msg}</ErrorMessage>
       </p>
