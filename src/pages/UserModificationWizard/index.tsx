@@ -8,6 +8,8 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 
+import { CREATE_WIZARD_PERSIST_STORAGE } from '../../constants';
+import FormikPersist from './components/FormikPersist';
 import IWizardFormValues from './interfaces/wizardFormValues';
 import Account from './pages/Account';
 import Capabilities from './pages/Capabilities';
@@ -64,6 +66,7 @@ const UserModificationWizard: React.FC<{}> = () => {
                 <Capabilities baseUrl={url} />
               </Route>
             </Switch>
+            <FormikPersist name={CREATE_WIZARD_PERSIST_STORAGE} />
           </Form>
         </Formik>
       </div>
