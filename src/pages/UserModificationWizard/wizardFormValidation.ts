@@ -61,9 +61,13 @@ const WizardValidationSchema = Yup.object().shape({
         .required('Required'),
     )
     .ensure()
-    .min(1, 'Min length should be 1')
-    .max(3, 'Max length should be 3')
+    .min(1, 'Min phone numbers count should be 1')
+    .max(3, 'Max phone numbers count should be 3')
     .required('Required'),
+  skills: Yup.array()
+    .of(Yup.string().required('Required'))
+    .min(3, 'Min skills count should be 3'),
+  additionalInfo: Yup.string().max(300, 'Max length is 300'),
 });
 
 export default WizardValidationSchema;
