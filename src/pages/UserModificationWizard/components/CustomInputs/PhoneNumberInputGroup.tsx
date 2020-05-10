@@ -71,7 +71,7 @@ const PhoneNumberInputItem: React.FC<IInput & FieldProps & ICustomProps> = ({
 };
 
 const PhoneNumberInputGroup: React.FC = () => {
-  const [field, meta, helpers] = useField('phoneNumbers');
+  const [field, , helpers] = useField('phoneNumbers');
   const [phoneNumbersCount, setPhoneNumbersCount] = useState<number>(
     field.value.length,
   );
@@ -89,7 +89,7 @@ const PhoneNumberInputGroup: React.FC = () => {
       );
       setPhoneNumbersCount(phoneNumbersCount - 1);
     },
-    [field, meta, helpers],
+    [phoneNumbersCount, field, helpers],
   );
 
   return (
