@@ -41,7 +41,9 @@ class FormikPersist extends React.Component<
     if (maybeState && maybeState !== null) {
       const formikState = JSON.parse(maybeState);
       formikState.values.skills = new Set<string>(
-        formikState.values.skills ? formikState.values.skills : [],
+        formikState.values.skills && formikState.values.skills.length
+          ? formikState.values.skills
+          : ['1'],
       );
       this.props.formik.setFormikState(formikState);
     }

@@ -43,7 +43,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:unicorn/recommended',
     'plugin:promise/recommended',
     'plugin:jest/all',
   ],
@@ -70,8 +69,6 @@ module.exports = {
     'react/button-has-type': 0,
     'import/no-extraneous-dependencies': [2, { devDependencies: ['**/test.tsx', '**/test.ts'] }],
     '@typescript-eslint/indent': [2, 2],
-    'unicorn/filename-case': 0,
-    'unicorn/prevent-abbreviations': 0,
     // copied from back-end config
     'array-callback-return': 'error',
     'block-scoped-var': 'error',
