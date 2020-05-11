@@ -1,6 +1,9 @@
 import dayjs from 'dayjs';
 import * as Yup from 'yup';
 
+import { searchRemakeDbItemByIndex } from '../../db';
+import { RemakeDbSchemaIndexes } from '../../db/RemakeDbSchema';
+
 // const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\(\d{2,3}\\)[ \\-]*)|(\d{2,4})[ \\-]*)*?\d{3,4}?[ \\-]*\d{3,4}?$/;
 
 const FILE_SIZE = 2 * 1024 * 1024;
@@ -11,10 +14,33 @@ const SUPPORTED_FORMATS = new Set([
   'image/png',
 ]);
 
+const checkUniqueCallback = (indexName: RemakeDbSchemaIndexes) => async (
+  value: string | undefined,
+): Promise<boolean> => {
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  return new Promise((resolve) => {
+    if (typeof value === 'undefined') return resolve(true);
+    return searchRemakeDbItemByIndex(indexName, value)
+      .then((data) => {
+        if (typeof data === 'undefined') return resolve(true);
+        return resolve(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        resolve(true);
+      });
+  });
+};
+
 const WizardValidationSchema = Yup.object().shape({
   userName: Yup.string()
     .min(2, 'User Name Too Short!')
     .max(70, 'User Name Too Long!')
+    .test(
+      'userNameUniqueTest',
+      'User Name Should be unique',
+      checkUniqueCallback('byUserName'),
+    )
     .required('Required'),
   password: Yup.string()
     .required('No password provided.')
@@ -41,7 +67,14 @@ const WizardValidationSchema = Yup.object().shape({
   birthDate: Yup.date()
     .max(dayjs().subtract(18, 'year').toDate(), 'User must be older 18')
     .required('Required'),
-  email: Yup.string().email('Incorrect email format').required('Required'),
+  email: Yup.string()
+    .email('Incorrect email format')
+    .required('Required')
+    .test(
+      'userEmailUniqueTest',
+      'Email should be unique',
+      checkUniqueCallback('byEmail'),
+    ),
   address: Yup.string()
     .min(5, 'Address Too Short!')
     .max(180, 'Address Too Long!')

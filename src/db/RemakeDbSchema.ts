@@ -2,6 +2,12 @@ import { DBSchema } from 'idb';
 
 import { ISelectData } from '../pages/UserModificationWizard/interfaces/wizardFormValues';
 
+export type RemakeDbSchemaIndexes =
+  | 'byEmail'
+  | 'byUserName'
+  | 'byFirstName'
+  | 'byLastName';
+
 interface RemakeDbSchema extends DBSchema {
   users: {
     value: {
@@ -30,9 +36,10 @@ interface RemakeDbSchema extends DBSchema {
     };
     key: string;
     indexes: {
-      byEmail: number;
-      byFirstName: number;
-      byLastName: number;
+      byEmail: string;
+      byUserName: string;
+      byFirstName: string;
+      byLastName: string;
     };
   };
 }

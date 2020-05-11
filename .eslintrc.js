@@ -174,7 +174,7 @@ module.exports = {
     'prefer-const': 2,
     'prefer-rest-params': 2,
     'prefer-spread': 2,
-    'no-console': 2,
+    'no-console': 1,
     'sort-keys': 0,
     quotes: ['error', 'single'],
     'object-curly-spacing': 2,
