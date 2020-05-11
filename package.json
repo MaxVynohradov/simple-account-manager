@@ -27,6 +27,7 @@
     "dayjs": "^1.8.25",
     "dotenv": "^8.2.0",
     "formik": "^2.1.4",
+    "idb": "^5.0.2",
     "jss": "^10.1.1",
     "jss-plugin-camel-case": "^10.1.1",
     "jss-plugin-default-unit": "^10.1.1",

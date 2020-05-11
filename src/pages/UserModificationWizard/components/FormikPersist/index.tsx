@@ -20,9 +20,19 @@ class FormikPersist extends React.Component<
   };
 
   saveForm = debounce((data: FormikProps<{}>) => {
+    const dataToSerialize = JSON.parse(JSON.stringify(data));
+    // @ts-ignore
+    dataToSerialize.values.myHobbies = [...data.values.myHobbies];
     if (this.props.isSessionStorage)
-      window.sessionStorage.setItem(this.props.name, JSON.stringify(data));
-    else window.localStorage.setItem(this.props.name, JSON.stringify(data));
+      window.sessionStorage.setItem(
+        this.props.name,
+        JSON.stringify(dataToSerialize),
+      );
+    else
+      window.localStorage.setItem(
+        this.props.name,
+        JSON.stringify(dataToSerialize),
+      );
   }, this.props.debounce);
 
   componentDidUpdate(prevProps: PersistProps & { formik: FormikProps<any> }) {
