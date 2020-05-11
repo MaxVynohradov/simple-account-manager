@@ -10,6 +10,10 @@ const useStyles = createUseStyles((theme: IGeneralTheme) => ({
     justifyContent: 'center',
     width: '100%',
   },
+  wizardBodyContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
   wizardHeaderActiveItem: {},
   wizardHeaderClickableItem: {
     cursor: 'pointer',

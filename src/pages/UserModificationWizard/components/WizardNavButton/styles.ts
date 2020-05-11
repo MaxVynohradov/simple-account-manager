@@ -8,6 +8,11 @@ const useStyles = createUseStyles((theme: IGeneralTheme) => ({
     backgroundColor: theme.background.color.primary,
     color: theme.font.color.white,
   },
+  saveButton: {
+    ...theme.generalButtonStyles,
+    backgroundColor: theme.background.color.primary,
+    color: theme.font.color.white,
+  },
   backButton: {
     ...theme.generalButtonStyles,
     backgroundColor: '#C1CFE0',

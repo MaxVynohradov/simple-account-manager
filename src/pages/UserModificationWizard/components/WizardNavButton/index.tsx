@@ -16,6 +16,7 @@ const WizardNavButton: React.FC<Props> = ({ link, actionType }: Props) => {
   const buttonTypeToClass = (): string => {
     if (actionType === 'Back') return classes.backButton;
     if (actionType === 'Forward') return classes.forwardButton;
+    if (actionType === 'Save') return classes.saveButton;
     return classes.finishButton;
   };
 

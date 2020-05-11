@@ -12,17 +12,19 @@ import {
 import { CREATE_WIZARD_PERSIST_STORAGE } from '../../constants';
 import { setRemakeDbItem } from '../../db';
 import FormikPersist from './components/FormikPersist';
+import WizardNavBar from './components/WizardNavBar';
 import IWizardFormValues from './interfaces/wizardFormValues';
 import Account from './pages/Account';
 import Capabilities from './pages/Capabilities';
 import Contacts from './pages/Contacts';
 import Profile from './pages/Profile';
 import useStyles from './styles';
+import { PagesName, pickTabButtonsConfig } from './tabsButtonConfig';
 import WizardValidationSchema from './wizardFormValidation';
 import wizardInitialValues from './wizardInitialValues';
 
 interface Props {
-  isTabsClickable: boolean;
+  isTabsClickable?: boolean;
 }
 
 const UserModificationWizard: React.FC<Props> = ({
@@ -32,7 +34,7 @@ const UserModificationWizard: React.FC<Props> = ({
   const classes = useStyles();
   const { url } = useRouteMatch();
   const { pathname } = useLocation();
-  const currentTabName = pathname.trimEnd().split('/').pop();
+  const currentTabName = pathname.trimEnd().split('/').pop() as PagesName;
 
   const shouldTabBeActive = useCallback(
     (tabName: string): string | undefined => {
@@ -105,21 +107,26 @@ const UserModificationWizard: React.FC<Props> = ({
           validationSchema={WizardValidationSchema}
         >
           <Form>
-            <Switch>
-              <Redirect from={`${url}`} to={`${url}/account`} exact />
-              <Route path={`${url}/account`} exact>
-                <Account baseUrl={url} />
-              </Route>
-              <Route path={`${url}/profile`} exact>
-                <Profile baseUrl={url} />
-              </Route>
-              <Route path={`${url}/contacts`} exact>
-                <Contacts baseUrl={url} />
-              </Route>
-              <Route path={`${url}/capabilities`} exact>
-                <Capabilities baseUrl={url} />
-              </Route>
-            </Switch>
+            <div className={classes.wizardBodyContainer}>
+              <Switch>
+                <Redirect from={`${url}`} to={`${url}/account`} exact />
+                <Route path={`${url}/account`} exact>
+                  <Account />
+                </Route>
+                <Route path={`${url}/profile`} exact>
+                  <Profile />
+                </Route>
+                <Route path={`${url}/contacts`} exact>
+                  <Contacts />
+                </Route>
+                <Route path={`${url}/capabilities`} exact>
+                  <Capabilities />
+                </Route>
+              </Switch>
+            </div>
+            <WizardNavBar
+              actionHandlers={pickTabButtonsConfig(url, currentTabName)}
+            />
             <FormikPersist name={CREATE_WIZARD_PERSIST_STORAGE} />
           </Form>
         </Formik>
