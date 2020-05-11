@@ -9908,10 +9908,29 @@ react-table@^7.0.4:
   dependencies:
     "@scarf/scarf" "^0.1.5"
 
+react-toastify@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.npmjs.org/react-toastify/-/react-toastify-6.0.1.tgz#c6d7ca3fae5ef264e814fd9a83ae7be298d57c0c"
+  integrity sha512-P/WHou5+d8tlcUAyObgbo4MKN/BHV5lX428H/ICHVRF3B7ieWIfriAOdkvO35YAzlJe5y8DToCmiFg87gf2Etw==
+  dependencies:
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+    react-transition-group "^4.4.1"
+
 react-transition-group@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.3.0.tgz#fea832e386cf8796c58b61874a3319704f5ce683"
   integrity sha512-1qRV1ZuVSdxPlPf4O8t7inxUGpdyO5zG9IoNfJxSO0ImU2A1YWkEQvFPuIPZmMLkg5hYs7vv5mMOyfgSkvAwvw==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+
+react-transition-group@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
+  integrity sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw==
   dependencies:
     "@babel/runtime" "^7.5.5"
     dom-helpers "^5.0.1"

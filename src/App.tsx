@@ -1,4 +1,5 @@
 import 'react-datepicker/dist/react-datepicker.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import jss from 'jss';
 import jssPluginCamelCase from 'jss-plugin-camel-case';
@@ -13,6 +14,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import AppContainer from './components/AppContainer';
 import AppHeader from './components/AppHeader';
@@ -46,10 +48,11 @@ const App: React.FC = () => {
               <Switch>
                 <Redirect from="/" to="/user/create" exact />
                 <Route path="/user/create">
-                  <UserModificationWizard isTabsClickable />
+                  <UserModificationWizard isTabsClickable={false} />
                 </Route>
               </Switch>
             </AppContainer>
+            <ToastContainer />
           </div>
         </Router>
       </ThemeProvider>
