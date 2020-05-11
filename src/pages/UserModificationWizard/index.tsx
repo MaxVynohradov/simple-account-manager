@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 
 import { CREATE_WIZARD_PERSIST_STORAGE } from '../../constants';
+import { setRemakeDbItem } from '../../db';
 import FormikPersist from './components/FormikPersist';
 import IWizardFormValues from './interfaces/wizardFormValues';
 import Account from './pages/Account';
@@ -34,6 +35,11 @@ const UserModificationWizard: React.FC<{}> = () => {
   const onFormSubmit = useCallback((values: IWizardFormValues): void => {
     // eslint-disable-next-line no-console
     console.log('onFormSubmit', values);
+    setRemakeDbItem(values.email, values)
+      // eslint-disable-next-line no-console
+      .then((data) => console.log('User data saved', data))
+      // eslint-disable-next-line no-console
+      .catch((error) => console.error('Error on user save', error));
   }, []);
 
   return (
