@@ -4,6 +4,7 @@ import {
   Redirect,
   Route,
   Switch,
+  useHistory,
   useLocation,
   useRouteMatch,
 } from 'react-router-dom';
@@ -20,16 +21,39 @@ import useStyles from './styles';
 import WizardValidationSchema from './wizardFormValidation';
 import wizardInitialValues from './wizardInitialValues';
 
-const UserModificationWizard: React.FC<{}> = () => {
+interface Props {
+  isTabsClickable: boolean;
+}
+
+const UserModificationWizard: React.FC<Props> = ({
+  isTabsClickable = false,
+}: Props) => {
+  const history = useHistory();
   const classes = useStyles();
   const { url } = useRouteMatch();
   const { pathname } = useLocation();
   const currentTabName = pathname.trimEnd().split('/').pop();
 
   const shouldTabBeActive = useCallback(
-    (tabName: string): string | undefined =>
-      currentTabName === tabName ? classes.wizardHeaderActiveItem : undefined,
-    [currentTabName, classes.wizardHeaderActiveItem],
+    (tabName: string): string | undefined => {
+      if (currentTabName === tabName) return classes.wizardHeaderActiveItem;
+      return currentTabName !== tabName && isTabsClickable
+        ? classes.wizardHeaderClickableItem
+        : undefined;
+    },
+    [
+      isTabsClickable,
+      currentTabName,
+      classes.wizardHeaderActiveItem,
+      classes.wizardHeaderClickableItem,
+    ],
+  );
+
+  const tabHeaderNavigationClick = useCallback(
+    (link: string) => (): void => {
+      if (isTabsClickable) history.push(link);
+    },
+    [isTabsClickable, history],
   );
 
   const onFormSubmit = useCallback((values: IWizardFormValues): void => {
@@ -45,10 +69,34 @@ const UserModificationWizard: React.FC<{}> = () => {
   return (
     <div className={classes.wizardContainer}>
       <div className={classes.wizardHeader}>
-        <div className={shouldTabBeActive('account')}>1. Account</div>
-        <div className={shouldTabBeActive('profile')}>2. Profile</div>
-        <div className={shouldTabBeActive('contacts')}>3. Contacts</div>
-        <div className={shouldTabBeActive('capabilities')}>4. Capabilities</div>
+        <div
+          role="presentation"
+          className={shouldTabBeActive('account')}
+          onClick={tabHeaderNavigationClick('account')}
+        >
+          1. Account
+        </div>
+        <div
+          role="presentation"
+          className={shouldTabBeActive('profile')}
+          onClick={tabHeaderNavigationClick('profile')}
+        >
+          2. Profile
+        </div>
+        <div
+          role="presentation"
+          className={shouldTabBeActive('contacts')}
+          onClick={tabHeaderNavigationClick('contacts')}
+        >
+          3. Contacts
+        </div>
+        <div
+          role="presentation"
+          className={shouldTabBeActive('capabilities')}
+          onClick={tabHeaderNavigationClick('capabilities')}
+        >
+          4. Capabilities
+        </div>
       </div>
       <div className={classes.wizardBody}>
         <Formik

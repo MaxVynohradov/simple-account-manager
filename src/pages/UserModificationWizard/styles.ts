@@ -11,6 +11,9 @@ const useStyles = createUseStyles((theme: IGeneralTheme) => ({
     width: '100%',
   },
   wizardHeaderActiveItem: {},
+  wizardHeaderClickableItem: {
+    cursor: 'pointer',
+  },
   wizardHeader: {
     display: 'flex',
     flexDirection: 'row',

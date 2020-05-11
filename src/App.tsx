@@ -46,7 +46,7 @@ const App: React.FC = () => {
               <Switch>
                 <Redirect from="/" to="/user/create" exact />
                 <Route path="/user/create">
-                  <UserModificationWizard />
+                  <UserModificationWizard isTabsClickable />
                 </Route>
               </Switch>
             </AppContainer>
