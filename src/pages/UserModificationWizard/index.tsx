@@ -8,6 +8,7 @@ import {
   useLocation,
   useRouteMatch,
 } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { CREATE_WIZARD_PERSIST_STORAGE } from '../../constants';
 import { setRemakeDbItem } from '../../db';
@@ -59,13 +60,16 @@ const UserModificationWizard: React.FC<Props> = ({
   );
 
   const onFormSubmit = useCallback((values: IWizardFormValues): void => {
-    // eslint-disable-next-line no-console
     console.log('onFormSubmit', values);
     setRemakeDbItem(values.email, values)
-      // eslint-disable-next-line no-console
-      .then((data) => console.log('User data saved', data))
-      // eslint-disable-next-line no-console
-      .catch((error) => console.error('Error on user save', error));
+      .then((data) => {
+        console.log('User data saved', data);
+        return toast.success('User data saved');
+      })
+      .catch((error) => {
+        console.error('Error on user save', error);
+        toast.error('Error on user save');
+      });
   }, []);
 
   return (

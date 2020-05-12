@@ -9,19 +9,61 @@ interface ILinksMap {
   capabilities: IActionHandler[];
 }
 
+const PROFILE_FIELDS = [
+  'firstName',
+  'lastName',
+  'email',
+  'address',
+  'birthDate',
+  'gender',
+];
+
+const CONTACTS_FIELDS = [
+  'company',
+  'githubLink',
+  'facebookLink',
+  'mainLanguage',
+  'fax',
+  'phoneNumbers',
+];
+
+const CAPABILITIES_FIELDS = ['skills', 'additionalInfo', 'myHobbies'];
+
 export const getTabsButtonsConfig = (baseUrl: string): ILinksMap => ({
-  account: [{ link: `${baseUrl}/profile`, actionType: 'Forward' }],
+  account: [
+    {
+      link: `${baseUrl}/profile`,
+      actionType: 'Forward',
+      fields: ['userName', 'avatar', 'password', 'passwordRepeat'],
+    },
+  ],
   profile: [
-    { link: `${baseUrl}/account`, actionType: 'Back' },
-    { link: `${baseUrl}/contacts`, actionType: 'Forward' },
+    { link: `${baseUrl}/account`, actionType: 'Back', fields: PROFILE_FIELDS },
+    {
+      link: `${baseUrl}/contacts`,
+      actionType: 'Forward',
+      fields: PROFILE_FIELDS,
+    },
   ],
   contacts: [
-    { link: `${baseUrl}/profile`, actionType: 'Back' },
-    { link: `${baseUrl}/capabilities`, actionType: 'Forward' },
+    { link: `${baseUrl}/profile`, actionType: 'Back', fields: CONTACTS_FIELDS },
+    {
+      link: `${baseUrl}/capabilities`,
+      actionType: 'Forward',
+      fields: CONTACTS_FIELDS,
+    },
   ],
   capabilities: [
-    { link: `${baseUrl}/contacts`, actionType: 'Back' },
-    { link: `${baseUrl}/account`, actionType: 'Finish' },
+    {
+      link: `${baseUrl}/contacts`,
+      actionType: 'Back',
+      fields: CAPABILITIES_FIELDS,
+    },
+    {
+      link: `${baseUrl}/account`,
+      actionType: 'Finish',
+      fields: CAPABILITIES_FIELDS,
+    },
   ],
 });
 
