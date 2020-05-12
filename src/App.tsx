@@ -38,17 +38,21 @@ const App: React.FC = () => {
       // eslint-disable-next-line no-console
       .catch((err) => console.error(err));
   }, []);
+
+  const isTabsClickable = true;
   return (
     <JssProvider jss={jss}>
       <ThemeProvider theme={theme}>
         <Router basename="/simple-account-manager">
           <div className="App">
             <AppHeader />
-            <AppContainer headerText="Adding new user">
+            <AppContainer
+              headerText={isTabsClickable ? 'Edit' : 'Adding new user'}
+            >
               <Switch>
                 <Redirect from="/" to="/user/create" exact />
                 <Route path="/user/create">
-                  <UserModificationWizard isTabsClickable={false} />
+                  <UserModificationWizard isTabsClickable={isTabsClickable} />
                 </Route>
               </Switch>
             </AppContainer>

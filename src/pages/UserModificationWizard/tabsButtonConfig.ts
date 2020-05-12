@@ -70,4 +70,17 @@ export const getTabsButtonsConfig = (baseUrl: string): ILinksMap => ({
 export const pickTabButtonsConfig = (
   baseUrl: string,
   currentTabName: PagesName,
-): IActionHandler[] => getTabsButtonsConfig(baseUrl)[currentTabName];
+  isTabsClickable: boolean,
+): IActionHandler[] => {
+  const actions = getTabsButtonsConfig(baseUrl)[currentTabName];
+  if (isTabsClickable)
+    return [
+      {
+        link: `${baseUrl}/account`,
+        actionType: 'Save',
+        fields: actions[0].fields,
+      },
+    ];
+
+  return actions;
+};

@@ -129,7 +129,11 @@ const UserModificationWizard: React.FC<Props> = ({
               </Switch>
             </div>
             <WizardNavBar
-              actionHandlers={pickTabButtonsConfig(url, currentTabName)}
+              actionHandlers={pickTabButtonsConfig(
+                url,
+                currentTabName,
+                isTabsClickable,
+              )}
             />
             <FormikPersist name={CREATE_WIZARD_PERSIST_STORAGE} />
           </Form>
