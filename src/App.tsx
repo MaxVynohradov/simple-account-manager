@@ -20,6 +20,7 @@ import AppContainer from './components/AppContainer';
 import AppHeader from './components/AppHeader';
 import { connectDb } from './db';
 import UserModificationWizard from './pages/UserModificationWizard';
+import UsersList from './pages/UsersList';
 import style from './styles';
 import theme from './theme';
 
@@ -39,23 +40,30 @@ const App: React.FC = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const isTabsClickable = true;
   return (
     <JssProvider jss={jss}>
       <ThemeProvider theme={theme}>
         <Router basename="/simple-account-manager">
           <div className="App">
             <AppHeader />
-            <AppContainer
-              headerText={isTabsClickable ? 'Edit' : 'Adding new user'}
-            >
-              <Switch>
-                <Redirect from="/" to="/user/create" exact />
-                <Route path="/user/create">
-                  <UserModificationWizard isTabsClickable={isTabsClickable} />
-                </Route>
-              </Switch>
-            </AppContainer>
+            <Switch>
+              <Redirect from="/" to="/user/list" exact />
+              <Route path="/user/create">
+                <AppContainer headerText="Adding new user">
+                  <UserModificationWizard isTabsClickable={false} />
+                </AppContainer>
+              </Route>
+              <Route path="/user/edit">
+                <AppContainer headerText="Edit">
+                  <UserModificationWizard isTabsClickable />
+                </AppContainer>
+              </Route>
+              <Route path="/user/list">
+                <AppContainer headerText="List of users">
+                  <UsersList />
+                </AppContainer>
+              </Route>
+            </Switch>
             <ToastContainer />
           </div>
         </Router>
