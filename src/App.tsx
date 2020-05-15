@@ -47,7 +47,6 @@ const App: React.FC = () => {
           <div className="App">
             <AppHeader />
             <Switch>
-              <Redirect from="/" to="/user/list" exact />
               <Route path="/user/create">
                 <AppContainer headerText="Adding new user">
                   <UserModificationWizard isTabsClickable={false} />
@@ -63,6 +62,7 @@ const App: React.FC = () => {
                   <UsersList />
                 </AppContainer>
               </Route>
+              <Redirect from="/*" to="/user/list" exact />
             </Switch>
             <ToastContainer />
           </div>
