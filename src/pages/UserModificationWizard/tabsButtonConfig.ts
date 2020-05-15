@@ -72,7 +72,9 @@ export const pickTabButtonsConfig = (
   currentTabName: PagesName,
   isTabsClickable: boolean,
 ): IActionHandler[] => {
-  const actions = getTabsButtonsConfig(baseUrl)[currentTabName];
+  const actions =
+    getTabsButtonsConfig(baseUrl)[currentTabName] ||
+    getTabsButtonsConfig(baseUrl).account;
   if (isTabsClickable)
     return [
       {

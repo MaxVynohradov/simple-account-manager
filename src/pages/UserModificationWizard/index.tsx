@@ -14,7 +14,8 @@ import { CREATE_WIZARD_PERSIST_STORAGE } from '../../constants';
 import { setRemakeDbItem } from '../../db';
 import FormikPersist from './components/FormikPersist';
 import WizardNavBar from './components/WizardNavBar';
-import IWizardFormValues from './interfaces/wizardFormValues';
+import { headerConfig } from './headerConfig';
+import { IWizardFormValues } from './interfaces/wizardFormValues';
 import Account from './pages/Account';
 import Capabilities from './pages/Capabilities';
 import Contacts from './pages/Contacts';
@@ -75,34 +76,16 @@ const UserModificationWizard: React.FC<Props> = ({
   return (
     <div className={classes.wizardContainer}>
       <div className={classes.wizardHeader}>
-        <div
-          role="presentation"
-          className={shouldTabBeActive('account')}
-          onClick={tabHeaderNavigationClick('account')}
-        >
-          1. Account
-        </div>
-        <div
-          role="presentation"
-          className={shouldTabBeActive('profile')}
-          onClick={tabHeaderNavigationClick('profile')}
-        >
-          2. Profile
-        </div>
-        <div
-          role="presentation"
-          className={shouldTabBeActive('contacts')}
-          onClick={tabHeaderNavigationClick('contacts')}
-        >
-          3. Contacts
-        </div>
-        <div
-          role="presentation"
-          className={shouldTabBeActive('capabilities')}
-          onClick={tabHeaderNavigationClick('capabilities')}
-        >
-          4. Capabilities
-        </div>
+        {headerConfig.map(({ name, label }) => (
+          <div
+            key={name}
+            role="presentation"
+            className={shouldTabBeActive(name)}
+            onClick={tabHeaderNavigationClick(name)}
+          >
+            {label}
+          </div>
+        ))}
       </div>
       <div className={classes.wizardBody}>
         <Formik
